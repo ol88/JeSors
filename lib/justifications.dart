@@ -20,7 +20,7 @@ class _JustificationsState extends State<Justifications> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Raison(s) de sortie"),
+        title: Text("Raison de sortie"),
       ),
       body: SingleChildScrollView(
         controller: _scrollController,

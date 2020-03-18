@@ -22,101 +22,101 @@ class NewDeclaration extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("Nouvelle Déclaration")),
-      body: SingleChildScrollView(
-        controller: _scrollController,
-              child: SizedBox.expand(
-          child: Column(
+      body: SizedBox.expand(
+          child: SingleChildScrollView(
+            controller: _scrollController,
+                      child: Column(
+              children: <Widget>[
+      //Centered
+      Align(
+        alignment: Alignment.topCenter,
+        child: Column(
             children: <Widget>[
-              //Centered
-              Align(
-                alignment: Alignment.topCenter,
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "\nATTESTATION DE DÉPLACEMENT DÉROGATOIRE",
-                      style: Theme.of(context).textTheme.headline6,
-                      textAlign: TextAlign.center,
-                    ),
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text:
-                            "\nEn application de l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :",
-                        style: bodyTextStyle,
-                      ),
-                    ),
-                  ],
-                ),
+              Text(
+                "\nATTESTATION DE DÉPLACEMENT DÉROGATOIRE",
+                style: Theme.of(context).textTheme.headline6,
+                textAlign: TextAlign.center,
               ),
-              // Right aligned.
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 00),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DetailTextBlock("Je soussigné(e)"),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(right: 15.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  DetailTextBlock("Mme / M."),
-                                  DetailTextBlock("Né(e) le :"),
-                                  DetailTextBlock("Demeurant :")
-                                ],
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                DetailTextBlock(_fullName),
-                                DetailTextBlock(_dateOfBirth),
-                                DetailTextBlock(_address),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text(
-                        "certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé par l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :",
-                        style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText2.color),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 8.0),
-                        child: _reasonCheckBoxes(context, _reason),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                            child: Text(
-                              "Fait à " +
-                                  "_city" +
-                                  ", le " +
-                                  _dateFormat.format(DateTime.now()),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text:
+                      "\nEn application de l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :",
+                  style: bodyTextStyle,
                 ),
               ),
             ],
-          ),
         ),
       ),
+      // Right aligned.
+      Padding(
+        padding: const EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 00),
+        child: Align(
+            alignment: Alignment.topLeft,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DetailTextBlock("Je soussigné(e)"),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            DetailTextBlock("Mme / M."),
+                            DetailTextBlock("Né(e) le :"),
+                            DetailTextBlock("Demeurant :")
+                          ],
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          DetailTextBlock(_fullName),
+                          DetailTextBlock(_dateOfBirth),
+                          DetailTextBlock(_address),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  "certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé par l’article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19 :",
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText2.color),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 8.0),
+                  child: _reasonCheckBoxes(context, _reason),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        "Fait à " +
+                            "_city" +
+                            ", le " +
+                            _dateFormat.format(DateTime.now()),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+        ),
+      ),
+              ],
+            ),
+          ),
+        ),
     );
   }
 
