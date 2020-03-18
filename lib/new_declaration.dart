@@ -91,12 +91,21 @@ class NewDeclaration extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 8.0),
                       child: _reasonCheckBoxes(context, _reason),
                     ),
-                    Row(crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children:<Widget>[Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: Text("Fait à "+"_city"+", le "+_dateFormat.format(DateTime.now()),),
-                    ),],)
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Text(
+                            "Fait à " +
+                                "_city" +
+                                ", le " +
+                                _dateFormat.format(DateTime.now()),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -130,7 +139,7 @@ class NewDeclaration extends StatelessWidget {
                 ),
               ),
               Flexible(
-                              child: Container(
+                child: Container(
                   child: Text(
                     Raisons.raisons[i],
                     softWrap: true,
