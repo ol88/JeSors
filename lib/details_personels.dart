@@ -13,7 +13,7 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
   final _focusScopeNode = FocusScopeNode();
   final _formKey = GlobalKey<FormState>();
   final _dateTextController = TextEditingController();
-  final _dateFormat = DateFormat("d MMMM yyyy",'fr');
+  final _dateFormat = DateFormat("d MMMM yyyy", 'fr');
   var _selectedDate = DateTime.now();
   final _lastNameFocus = FocusNode();
   final _addressFocus = FocusNode();
@@ -108,7 +108,8 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     _formKey.currentState.save();
-                    Navigator.of(context).pushNamed(Justifications.routeName, arguments: [firstName,lastName,dateOfBirth,address]);
+                    Navigator.of(context).pushNamed(Justifications.routeName,
+                        arguments: [firstName, lastName, dateOfBirth, address]);
                   }
                 },
               )
