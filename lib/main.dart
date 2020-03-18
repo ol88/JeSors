@@ -53,6 +53,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TapGestureRecognizer _tapGestureRecognizer;
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -68,47 +69,58 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(bottom: 12.0),
-                child: Text(
-                  "ATTESTATION DE DÉPLACEMENT DÉROGATOIRE",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ),
-              Text(
-                "Remplissez votre attestation directement sur votre mobile, en moins d'une minute et sans imprimante !",
-                textAlign: TextAlign.center,
-              ),
-              DetailsPersonels(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RichText(
-                  text: TextSpan(
-                    style: Theme.of(context).textTheme.bodyText2,
-                    children: [
-                      // Not required for english but may be required for other local where the Sign Up/In action is in the middle or end of the sentence and requires leading text.
-                      TextSpan(
-                        text:
-                            "Aucune donnée n'est collectée par cette application purement gratuite et au code source libre et consultable directement ",
-                      ),
-                      TextSpan(
-                        text: "ici",
-                        recognizer: _tapGestureRecognizer,
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                      TextSpan(
-                        text: ".",
-                      ),
-                    ],
+        body: SingleChildScrollView(
+          controller: _scrollController,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0,30, 0, 12.0),
+                  child: Text(
+                    "ATTESTATION DE DÉPLACEMENT DÉROGATOIRE",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
-              ),
-            ],
+                Text(
+                  "Remplissez votre attestation directement sur votre mobile, en moins d'une minute et sans imprimante !",
+                  textAlign: TextAlign.center,
+                ),
+                DetailsPersonels(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RichText(
+                    text: TextSpan(
+                      style: Theme.of(context).textTheme.bodyText2,
+                      children: [
+                        // Not required for english but may be required for other local where the Sign Up/In action is in the middle or end of the sentence and requires leading text.
+                        TextSpan(
+                          text:
+                              "Aucune donnée n'est collectée par cette application purement gratuite et au code source libre et consultable directement ",
+                        ),
+                        TextSpan(
+                          text: "ici",
+                          recognizer: _tapGestureRecognizer,
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                        TextSpan(
+                          text: ".",
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Important: Cette application n'a pas été validée ou approuvée par le gouvernement Français. Aucune affiliation existe entre cette application et le gouvernment Français. L'utilisation de cette application est purement à la discretion de l'utilisateur. Les auteurs de l'application ne pourront en aucun cas être tenu(e)s responsable en cas de mauvaise utilisation.",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

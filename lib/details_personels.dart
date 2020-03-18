@@ -104,7 +104,7 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
                 },
               ),
               RaisedButton(
-                child: Text("Continuer et choisir la raisond de ma sortie."),
+                child: Text("Continuer et choisir la raison de ma sortie..."),
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     _formKey.currentState.save();
