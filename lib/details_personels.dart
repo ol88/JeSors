@@ -13,7 +13,7 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
   final _focusScopeNode = FocusScopeNode();
   final _formKey = GlobalKey<FormState>();
   final _dateTextController = TextEditingController();
-  final _dateFormat = DateFormat("d MMMM yyyy");
+  final _dateFormat = DateFormat("d MMMM yyyy",'fr');
   var _selectedDate = DateTime.now();
   final _lastNameFocus = FocusNode();
   final _addressFocus = FocusNode();
@@ -92,6 +92,8 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
                   hintText: "Votre addresse aujourd'hui (domicile, hôtel...)",
                   labelText: "Adresse",
                 ),
+                minLines: 3,
+                maxLines: 10,
                 textInputAction: TextInputAction.done,
                 onSaved: (value) => address = value,
                 validator: (value) {
@@ -105,7 +107,8 @@ class _DetailsPersonelsState extends State<DetailsPersonels> {
                 child: Text("Continuer et choisir la raisond de ma sortie."),
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                    Navigator.of(context).pushNamed(Justifications.routeName);
+                    _formKey.currentState.save();
+                    Navigator.of(context).pushNamed(Justifications.routeName, arguments: [firstName,lastName,dateOfBirth,address]);
                   }
                 },
               )

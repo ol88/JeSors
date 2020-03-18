@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:jesors/details_personels.dart';
 import 'package:jesors/justifications.dart';
 import 'package:jesors/mes_declarations.dart';
@@ -17,6 +18,18 @@ class JeSors extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      darkTheme: ThemeData.dark(),
+
+      //For App Localization
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      //Supported Languages
+      supportedLocales: [
+        const Locale('fr', 'FR'),
+      ],
       home: MyHomePage(title: 'JeSors'),
       routes: {
         NewDeclaration.routeName: (ctx) => NewDeclaration(),
