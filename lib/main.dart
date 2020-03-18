@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jesors/details_personels.dart';
+import 'package:jesors/justifications.dart';
+import 'package:jesors/mes_declarations.dart';
+
+import 'new_declaration.dart';
 
 void main() {
   runApp(JeSors());
@@ -13,6 +18,11 @@ class JeSors extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'JeSors'),
+      routes: {
+        NewDeclaration.routeName: (ctx) => NewDeclaration(),
+        MesDeclaration.routeName: (ctx) => MesDeclaration(),
+        Justifications.routeName: (ctx) => Justifications(),
+      },
     );
   }
 }
@@ -36,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[
+            DetailsPersonels(),
+          ],
         ),
       ),
     );
